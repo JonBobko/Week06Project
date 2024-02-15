@@ -11,8 +11,9 @@ public class Deck {
 		String suits [] = {"Clubs", "Diamonds", "Hearts", "Spades"};
 		String numbers [] = {"Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten",
 				"Jack", "Queen", "King", "Ace"};
-		int count = 2;
+		
 		for(String suit : suits) {
+			int count = 2;
 			for (String number : numbers) {
 				Card card = new Card (number, suit, count);
 				this.cards.add(card);
