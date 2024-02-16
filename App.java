@@ -3,10 +3,9 @@ package Week06Project;
 public class App {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Card card = new Card("Ace", "Spades", 14); 
+		//Card card = new Card("Ace", "Spades", 14); 
 		//instantiating a card to test code so far 
-		card.describe();
+		//card.describe();
 		//testing describe method 
 		
 		Deck deck = new Deck();
@@ -16,26 +15,32 @@ public class App {
 		Player player2 = new Player();
 		
 		deck.shuffle();
-		
+		deck.describe();
+
 		for(int i = 0; i < 52; i++) {
 			if (i % 2 == 0) {
-				player.draw();
+				player.getHand().add(deck.draw());
 			}
 			else {
-				player2.draw();
+				player2.getHand().add(deck.draw());
 			}
 		}
 		for (int i = 0; i < 26; i++) {
-		(player.flip()).describe();
-		player2.flip().describe();
-		if (player.value > player2.value) {
+			System.out.println("Round = " + (i + 1));
+		Card p1flip = player.flip();
+		Card p2flip = player2.flip();
+		System.out.print("Player 1 Card is: ");
+		p1flip.describe();
+		System.out.print("Player 2 Card is: ");
+		p2flip.describe();
+		if (p1flip.getValue() > p2flip.getValue()) {
 			player.incrementScore();
-			System.out.println("Player1 recieved a point");
-		}else if(player.value < player2.value) {
+			System.out.println("Player1 recieved a point\n");
+		}else if(p1flip.getValue() < p2flip.getValue()) {
 			player2.incrementScore();
-			System.out.println("Player2 recieved a point");
-		}else if(player.value == player2.value) {
-			System.out.println("No point was awarded");
+			System.out.println("Player2 recieved a point\n");
+		}else if(p1flip.getValue() == p2flip.getValue()) {
+			System.out.println("No point was awarded\n");
 		}
 		}
 		

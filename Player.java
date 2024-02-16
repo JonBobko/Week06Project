@@ -5,11 +5,12 @@ import java.util.List;
 
 public class Player {
 	int score;
+	List <Card> hand = new ArrayList<>();
+	
 	
 	public Player() {
 		int score = 0;
 		
-		// TODO Auto-generated constructor stub
 	}
 	public int getScore() {
 		return score;
@@ -17,7 +18,6 @@ public class Player {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	List<Card> hand = new ArrayList<>(); 
 	
 	
 	
@@ -26,18 +26,23 @@ public class Player {
 
 
 public void describeHand () {
-	for (Card : hand) {
+	for (Card card : hand) {
 		card.describe();
 	}
 	}
 	
-public List<Card> flip(hand) {
-	return hand.get(0);
-	
+public Card flip() {
+	return hand.remove(0);
 }
 
-public List<Card> draw(hand) {
-	return hand.draw();
+public Card draw() {
+	return hand.remove(0);
+}
+public List<Card> getHand() {
+	return hand;
+}
+public void setHand(List<Card> hand) {
+	this.hand = hand;
 }
 public int incrementScore () {
 	return score += 1;
