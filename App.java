@@ -9,13 +9,13 @@ public class App {
 		//testing describe method 
 		
 		Deck deck = new Deck();
-		deck.describe();
+		//deck.describe();
 		
 		Player player = new Player();
 		Player player2 = new Player();
 		
 		deck.shuffle();
-		deck.describe();
+		//deck.describe();
 
 		for(int i = 0; i < 52; i++) {
 			if (i % 2 == 0) {
@@ -25,6 +25,7 @@ public class App {
 				player2.getHand().add(deck.draw());
 			}
 		}
+		int tieCount = 0;
 		for (int i = 0; i < 26; i++) {
 			System.out.println("Round = " + (i + 1));
 		Card p1flip = player.flip();
@@ -40,19 +41,20 @@ public class App {
 			player2.incrementScore();
 			System.out.println("Player2 recieved a point\n");
 		}else if(p1flip.getValue() == p2flip.getValue()) {
+			tieCount++;
 			System.out.println("No point was awarded\n");
 		}
 		}
 		
 		if (player.score > player2.score) {
 			System.out.println("Player 1 Score: " + player.score + " " + "Player 2 Score: " + player2.score + 
-					"\nPlayer 1 is the winner!");
+					"\nNumber of tie rounds: " + tieCount + "\nPlayer 1 is the winner!");
 		}else if(player.score < player2.score) {
 			System.out.println("Player 1 Score: " + player.score + " " + "Player 2 Score: " + player2.score + 
-					"\nPlayer 2 is the winner!");
+					"\nNumber of tie rounds: " + tieCount + "\nPlayer 2 is the winner!");
 		}else {
 			System.out.println("Player 1 Score: " + player.score + " " + "Player 2 Score: " + player2.score + 
-					"\nIt's a tie!");
+					"\nNumber of tie rounds: " + tieCount + "\nIt's a tie!");
 		}
 		
 		
